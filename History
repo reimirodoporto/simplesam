@@ -1,0 +1,907 @@
+ 696 apk upgrade
+ 697 chmod +x /usr/local/bin/odin4
+ 698 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 699 cd /root/odin4
+ 700 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 701 cmake --build build --parallel $(nproc)
+ 702 cp build/odin4 /usr/local/bin/odin4
+ 703 chmod +x /usr/local/bin/odin4
+ 704 cd /root/odin4
+ 705 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 706 cmake --build build --parallel $(nproc)
+ 707 cp build/odin4 /usr/local/bin/odin4
+ 708 chmod +x /usr/local/bin/odin4
+ 709 # Create a symlink so pkg-config can locate cryptopp properly under the name 'libcrypto++'
+ 710 ln -s /usr/lib/pkgconfig/cryptopp.pc /usr/lib/pkgconfig/libcrypto++.pc
+ 711 # Now re-run the build commands cleanly
+ 712 cd /root/odin4
+ 713 rm -rf build
+ 714 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 715 cmake --build build --parallel $(nproc)
+ 716 cp build/odin4 /usr/local/bin/odin4
+ 717 chmod +x /usr/local/bin/odin4
+ 718 ks
+ 719 ls
+ 720 # Create a symlink so pkg-config can locate cryptopp properly under the name 'libcrypto++'
+ 721 ln -s /usr/lib/pkgconfig/cryptopp.pc /usr/lib/pkgconfig/libcrypto++.pc
+ 722 # Now re-run the build commands cleanly
+ 723 cd /root/odin4
+ 724 rm -rf build
+ 725 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 726 cmake --build build --parallel $(nproc)
+ 727 cp build/odin4 /usr/local/bin/odin4
+ 728 chmod +x /usr/local/bin/odin4
+ 729 find /usr -name "cryptopp.pc" -o -name "libcrypto++.pc"
+ 730 # Ensure the directory exists
+ 731 mkdir -p /usr/lib/pkgconfig
+ 732 # Remove any broken/existing symlink first
+ 733 rm -f /usr/lib/pkgconfig/libcrypto++.pc
+ 734 # Create the correct symlink (replace path if your cryptopp.pc is elsewhere)
+ 735 ln -s /usr/lib/pkgconfig/cryptopp.pc /usr/lib/pkgconfig/libcrypto++.pc
+ 736 # Export PKG_CONFIG_PATH so CMake/pkg-config is forced to look there
+ 737 export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/usr/local/lib/pkgconfig"
+ 738 pkg-config --modversion libcrypto++
+ 739 cd /root/odin4
+ 740 rm -rf build
+ 741 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 742 cmake --build build --parallel $(nproc)cp build/odin4 /usr/local/bin/odin4
+ 743 chmod +x /usr/local/bin/odin4
+ 744 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 745 cmake --build build --parallel $(nproc)
+ 746 apk update
+ 747 apk add --no-cache \
+ 748     cmake \
+ 749     ninja \
+ 750     build-base \
+ 751     pkgconfig \
+ 752     libusb-dev \
+ 753     cryptopp-dev
+ 754 cd /etc/apk/repositories
+ 755  /etc/apk/repositories
+ 756 doas /etc/apk/repositories
+ 757 cd
+ 758 doas /etc/apk/repositories 
+ 759 doas /etc/apk/
+ 760 doas cd /etc/apk/
+ 761 doas apk add cd /etc/apk/
+ 762 doas apk add cd
+ 763 cd
+ 764 cd..
+ 765 cd ..
+ 766 ls
+ 767 cd /etc/apk
+ 768 ls
+ 769 nano repositories 
+ 770 apk update
+ 771 echo "https://dl-cdn.alpinelinux.org/alpine/v3.24/community" >> /etc/apk/repositories
+ 772 apk update
+ 773 apk add --no-cache \
+ 774     cmake \
+ 775     ninja \
+ 776     build-base \
+ 777     pkgconfig \
+ 778     libusb-dev \
+ 779     crypto++-dev
+ 780 ln -sf /usr/lib/pkgconfig/cryptopp.pc /usr/lib/pkgconfig/libcrypto++.pc
+ 781 export PKG_CONFIG_PATH="/usr/lib/pkgconfig"
+ 782 cd /root/odin4
+ 783 rm -rf build
+ 784 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 785 cmake --build build --parallel $(nproc)
+ 786 # Install the binary
+ 787 cp build/odin4 /usr/local/bin/odin4
+ 788 chmod +x /usr/local/bin/odin4
+ 789 # Ensure the community repo is active in Alpine
+ 790 echo "https://dl-cdn.alpinelinux.org/alpine/v3.24/community" >> /etc/apk/repositories
+ 791 apk update
+ 792 # Install the correct packages
+ 793 apk add --no-cache cmake ninja build-base pkgconfig libusb-dev crypto++-dev
+ 794 ln -sf /usr/lib/pkgconfig/cryptopp.pc /usr/lib/pkgconfig/libcrypto++.pc
+ 795 export PKG_CONFIG_PATH="/usr/lib/pkgconfig"
+ 796 cd /root/odin4
+ 797 rm -rf build
+ 798 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 799 cmake --build build --parallel $(nproc)
+ 800 # Install the binary
+ 801 cp build/odin4 /usr/local/bin/odin4
+ 802 chmod +x /usr/local/bin/odin4
+ 803 cd /root/odin4
+ 804 rm -rf build
+ 805 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release \
+ 806   -Dcryptopp_INCLUDE_DIR=/usr/include \
+ 807   -Dcryptopp_LIBRARY=/usr/lib/libcryptopp.so
+ 808 cd /root/odin4
+ 809 sed -i 's/libcrypto++/crypto++/g' CMakeLists.txt
+ 810 rm -rf build
+ 811 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 812 cmake --build build --parallel $(nproc)
+ 813 cp build/odin4 /usr/local/bin/odin4
+ 814 apk add crypto++
+ 815 apk audit
+ 816 apk search crypto
+ 817 apk audit
+ 818 apk crypto++
+ 819 apk search crypto++
+ 820 ln -sf /usr/lib/pkgconfig/cryptopp.pc /usr/lib/pkgconfig/libcrypto++.pc
+ 821 cd /root/odin4
+ 822 rm -rf build
+ 823 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 824 cmake --build build --parallel $(nproc)
+ 825 cp build/odin4 /usr/local/bin/odin4
+ 826 ln -sf /usr/lib/pkgconfig/libcrypto++.pc /usr/lib/pkgconfig/crypto++.pc
+ 827 cd /root/odin4
+ 828 rm -rf build
+ 829 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 830 cmake --build build --parallel $(nproc)
+ 831 cp build/odin4 /usr/local/bin/odin4
+ 832 chmod +x /usr/local/bin/odin4
+ 833 cd /root/odin4
+ 834 sed -i 's/libcrypto++/crypto++/g' CMakeLists.txt
+ 835 rm -rf build
+ 836 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+ 837 cmake --build build --parallel $(nproc)
+ 838 cp build/odin4 /usr/local/bin/odin4
+ 839 chmod +x /usr/local/bin/odin4
+ 840 # 1. Clean out the incomplete build configuration
+ 841 rm -rf build
+ 842 # 2. Re-configure the project (creates the build directory and build files)
+ 843 cmake -B build -S .
+ 844 # 3. Compile the project
+ 845 cmake --build build --parallel $(nproc)
+ 846 # 4. Copy the freshly generated binary
+ 847 cp build/odin4 /usr/local/bin/odin4
+ 848 chmod +x /usr/local/bin/odin4
+ 849 apk add libcrypto++-dev
+ 850 apk update
+ 851 apk add crypto++-dev
+ 852 --   Package 'crypto++' not found
+ 853 CMake Error at /usr/share/cmake/Modules/FindPkgConfig.cmake:1093 (message):
+ 854   The following required packages were not found:
+ 855    - crypto++
+ 856 Call Stack (most recent call first):
+ 857   /usr/share/cmake/Modules/FindPkgConfig.cmake:1166 (_pkg_check_modules_internal)
+ 858   CMakeLists.txt:37 (pkg_check_modules)
+ 859 -- Configuring incomplete, errors occurred!
+ 860 ~/odin4 # 
+ 861 ~/odin4 # # 3. Compile the project
+ 862 ~/odin4 # cmake --build build --parallel $(nproc)
+ 863 gmake: Makefile: No such file or directory
+ 864 gmake: *** No rule to make target 'Makefile'.  Stop.
+ 865 ~/odin4 # 
+ 866 ~/odin4 # # 4. Copy the freshly generated binary
+ 867 ~/odin4 # cp build/odin4 /usr/local/bin/odin4
+ 868 cp: can't stat 'build/odin4': No such file or directory
+ 869 ~/odin4 # chmod +x /usr/local/bin/odin4
+ 870 chmod: /usr/local/bin/odin4: No such file or directory
+ 871 ~/odin4 # apk add libcrypto++-dev
+ 872 ERROR: unable to select packages:
+ 873   libcrypto++-dev (no such package):
+ 874     required by: world[libcrypto++-dev]
+ 875 ~/odin4 # apk update
+ 876 [fetch http://mirrors.edge.kernel.org/alpine/v3.24/main/x86_64/APKINDEX.ta...]
+ 877 v3.24.2-228-g1df840e1434 [http://mirrors.edge.kernel.org/alpine/v3.24/main]
+ 878 v3.24.2-220-gb05736a2b88 [http://mirrors.edge.kernel.org/alpine/v3.24/community]
+ 879 v3.24.3-6-g429715c289a [https://dl-cdn.alpinelinux.org/alpine/v3.24/community]
+ 880 OK: 28876 distinct packages available
+ 881 ~/odin4 # apk add crypto++-dev
+ 882 OK: 3754.8 MiB in 1064 packages
+ 883 ~/odin4 # 
+ 884 zzzx;/;';'';'
+ 885 zz
+ 886 # 1. Clean out the old, incomplete build configuration
+ 887 rm -rf build
+ 888 # 2. Re-configure the project (CMake will now find crypto++)
+ 889 cmake -B build -S .
+ 890 # 3. Compile the project
+ 891 cmake --build build --parallel $(nproc)
+ 892 # 4. Copy and stage the binary
+ 893 cp build/odin4 /usr/local/bin/odin4
+ 894 chmod +x /usr/local/bin/odin4
+ 895 ln -s /usr/lib/pkgconfig/libcryptopp.pc /usr/lib/pkgconfig/crypto++.pc
+ 896 # Force-create the correct symlink (-f overwrites the existing one)
+ 897 ln -sf /usr/lib/pkgconfig/libcryptopp.pc /usr/lib/pkgconfig/crypto++.pc
+ 898 # Test if pkg-config can now find it (it should output a version number)
+ 899 pkg-config --modversion crypto++
+ 900 # 1. Clean out the old configuration completely
+ 901 rm -rf build
+ 902 # 2. Re-configure the project
+ 903 cmake -B build -S .
+ 904 # 3. Compile the project
+ 905 cmake --build build --parallel $(nproc)
+ 906 # 4. Copy the binary
+ 907 cp build/odin4 /usr/local/bin/odin4
+ 908 chmod +x /usr/local/bin/odin4
+ 909 # 1. Clean out the old configuration completely
+ 910 rm -rf build
+ 911 # 2. Re-configure the project
+ 912 cmake -B build -S .
+ 913 # 3. Compile the project
+ 914 cmake --build build --parallel $(nproc)
+ 915 # 4. Copy the binary
+ 916 cp build/odin4 /usr/local/bin/odin4
+ 917 chmod +x /usr/local/bin/odin4
+ 918 apk add qt6-qtbase-dev
+ 919 # 1. Clean out the broken build files
+ 920 rm -rf build
+ 921 # 2. Re-configure the project (CMake will now look for Qt6)
+ 922 cmake -B build -S .
+ 923 # 3. Compile the project
+ 924 cmake --build build --parallel $(nproc)
+ 925 # 4. Copy and stage your binary
+ 926 cp build/odin4 /usr/local/bin/odin4
+ 927 chmod +x /usr/local/bin/odin4
+ 928 odin4 -l
+ 929 odin4 -d /dev/bus/usb/001/006 \
+ 930   -b BL_XXXX.tar.md5 \
+ 931   -a AP_XXXX.tar.md5 \
+ 932   -c CP_XXXX.tar.md5 \
+ 933   -s CSC_XXXX.tar.md5 \
+ 934   --reboot
+ 935 chmod +x /usr/local/bin/
+ 936 ls
+ 937 cd build/
+ 938 ;s
+ 939 ls
+ 940 cd fw
+ 941 ls
+ 942 odin4 -d /dev/bus/usb/001/006 \
+ 943   -b BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 944   -a AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+ 945   -c CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 946   -s CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 947   --reboot
+ 948 apk add --no-cache gzip+
+ 949 cd /root/odin4/build/fw
+ 950 gzip -d *.gz
+ 951 odin4 -d /dev/bus/usb/001/006 \
+ 952   -b BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 953   -a AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+ 954   -c CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 955   -s CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 956   --reboot
+ 957 odin4 -d /dev/bus/usb/001/006 \
+ 958   -b BL_XXXX.tar.md5 \
+ 959   -a AP_XXXX.tar.md5 \
+ 960   -c CP_XXXX.tar.md5 \
+ 961   -s CSC_XXXX.tar.md5 \
+ 962   --reboot
+ 963 odin4 -d /dev/bus/usb/001/006 \
+ 964   -b BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 965   -a AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+ 966   -c CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 967   -s CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 968   --reboot
+ 969 odin4 -d /dev/bus/usb/001/006 \
+ 970   -b /root/odin4/build/fw/BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 971   -a /root/odin4/build/fw/AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+ 972   -c /root/odin4/build/fw/CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 973   -s /root/odin4/build/fw/CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 974   --reboot
+ 975 odin4 -l
+ 976 odin4 -d /dev/bus/usb/001/008 \
+ 977   -b /root/odin4/build/fw/BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 978   -a /root/odin4/build/fw/AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+ 979   -c /root/odin4/build/fw/CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 980   -s /root/odin4/build/fw/CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 981   --reboot
+ 982 odin4 -l
+ 983 odin4 -d /dev/bus/usb/003/003 \
+ 984   -b /root/odin4/build/fw/BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 985   -a /root/odin4/build/fw/AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+ 986   -c /root/odin4/build/fw/CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 987   -s /root/odin4/build/fw/CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 988   --reboot
+ 989 odin4 -l
+ 990 odin4 -d /dev/bus/usb/001/010 \
+ 991   -b /root/odin4/build/fw/BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 992   -a /root/odin4/build/fw/AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+ 993   -c /root/odin4/build/fw/CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 994   -s /root/odin4/build/fw/CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 995   --reboot
+ 996 odin4 -l
+ 997 odin4 -d /dev/bus/usb/001/012 \
+ 998   -b /root/odin4/build/fw/BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+ 999   -a /root/odin4/build/fw/AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+1000   -c /root/odin4/build/fw/CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+1001   -s /root/odin4/build/fw/CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+1002   --reboot
+1003 odin4 -l
+1004 odin4 -d /dev/bus/usb/001/012 \
+1005   -b /root/odin4/build/fw/BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+1006   --reboot
+1007 odin4 -l
+1008 odin4 -d /dev/bus/usb/003/005 \
+1009   -b /root/odin4/build/fw/BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+1010   -a /root/odin4/build/fw/AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+1011   -c /root/odin4/build/fw/CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+1012   -s /root/odin4/build/fw/CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+1013   --reboot
+1014 odin4 -l
+1015 cd /root/odin4/build/fw && odin4 -d /dev/bus/usb/001/015 \
+1016   -b BL_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+1017   -a AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5 \
+1018   -c CP_F966USQS6AYK9_CP32068382_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+1019   -s CSC_OYN_F966UOYN6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT.tar.md5 \
+1020   --reboot
+1021 heimdall flash --RECOVERY recovery.img
+1022 odin4 -l
+1023 cd 
+1024 apk add --no-cache heimdall
+1025 heimdall detect
+1026 lsusb
+1027 cd /root/odin4/build/fw
+1028 # Untar your extracted files (e.g., AP or recovery components)
+1029 tar -xvf AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5
+1030 heimdall print-pit --no-reboot
+1031 lsusb
+1032 tar -xvf AP_F966USQS6AYK9_F966USQS6AYK9_MQB103244683_REV00_user_low_ship_MULTI_CERT_meta_OS16.tar.md5
+1033 heimdall detect
+1034 lsusb
+1035 apk add --no-cache lz4
+1036 cd /root/odin4/build/fw
+1037 for f in *.img.lz4; do lz4 -d "$f" "${f%.lz4}"; done
+1038 heimdall flash --BOOT boot.img --INIT_BOOT init_boot.img --DTBO dtbo.img --resume
+1039 # Untar your extracted files (e.g., AP or recovery components)
+1040 heimdall flash --BOOT boot.img --INIT_BOOT init_boot.img --DTBO dtbo.img --resume
+1041 heimdall detect
+1042 heimdall flash --BOOT boot.img --INIT_BOOT init_boot.img --DTBO dtbo.img --resume
+1043 lsusb
+1044 heibdall detect
+1045 heimdall detect
+1046 heimdall flash --BOOT boot.img --INIT_BOOT init_boot.img --DTBO dtbo.img --resume
+1047 heimdall print-pit --no-reboot
+1048 rc-service modem-manager stop 2>/dev/null || true
+1049 cat << 'EOF' > /etc/udev/rules.d/60-samsung.rules
+1050 SUBSYSTEM=="usb", ATTRS{idVendor}=="04e8", MODE="0666", GROUP="plugdev", ENV{ID_MM_DEVICE_IGNORE}="1"
+1051 EOF
+1052 udevadm control --reload-rules
+1053 udevadm trigger
+1054 heimdall print-pit --no-reboot
+1055 heimdall detect
+1056 lsusb
+1057 heimdall print-pit --no-reboot
+1058 -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1059 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1060   -drive file=windows.qcow2,format=qcow2 \
+1061   -cdrom win10.iso \
+1062   -drive file=virtio-win.iso,media=cdrom \
+1063   -netdev user,id=net0 -device virtio-net-pci,netdev=net0 \
+1064   -usb -device usb-host,vendorid=0x04e8,productid=0x685d \
+1065   -boot d
+1066 apk add --no-cache qemu-system-x86_64 qemu-img+
+1067 apk add --no-cache qemu-system-x86_64 qemu-img
+1068 doas apk add --no-cache qemu-system-x86_64 qemu-img
+1069 apk add --no-cache qemu-system-x86_64 qemu-img
+1070 pkill -9 apk
+1071 rm -f /lib/apk/db/lock
+1072 apk add --no-cache qemu-system-x86_64 qemu-img
+1073 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1074   -drive file=windows.qcow2,format=qcow2 \
+1075   -cdrom win10.iso \
+1076   -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1077 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1078   -drive file=windows.qcow2,format=qcow2 \
+1079   -cdrom win10.iso \
+1080   -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1081 qemu-img create -f qcow2 windows.qcow2 64G
+1082 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1083   -drive file=windows.qcow2,format=qcow2 \
+1084   -cdrom win10.iso \
+1085   -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1086 cd /root/Downloads
+1087 ls
+1088 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1089    -drive file=windows.qcow2,format=qcow2 \
+1090    -cdrom Win10_22H2_EnglishInternational_x32v1.iso \
+1091    -boot d \
+1092    -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1093 cd ~
+1094 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1095    -drive file=windows.qcow2,format=qcow2 \
+1096    -cdrom /root/Downloads/Win10_22H2_EnglishInternational_x32v1.iso \
+1097    -boot d \
+1098    -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1099 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1100    -drive file=/root/windows.qcow2,format=qcow2 \
+1101    -cdrom Win10_22H2_EnglishInternational_x32v1.iso \
+1102    -boot d \
+1103    -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1104 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1105    -drive file=/root/windows.qcow2,format=qcow2 \
+1106    -cdrom /root/Downloads/Win10_22H2_EnglishInternational_x32v1.iso \
+1107    -boot d \
+1108    -usb
+1109 ssh -L 5900:localhost:5900 root@your-alpine-ip
+1110 doas apk add tigervnc
+1111 vncviewer localhost:5900
+1112 doas apk add tigervnc-client
+1113 vncviewer localhost:5900
+1114 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1115    -drive file=/root/windows.qcow2,format=qcow2 \
+1116    -net nic,model=virtio -net user \
+1117    -device qemu-xhci,id=xhci \
+1118    -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d \
+1119    -device usb-tablet
+1120 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1121    -drive file=/root/windows.qcow2,format=qcow2 \
+1122    -net nic,model=virtio -net user \
+1123    -usb \
+1124    -device usb-tablet
+1125 vncviewer localhost:5900
+1126 lsusb
+1127 hemdall detect
+1128 heimdall detect
+1129 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1130    -drive file=/root/windows.qcow2,format=qcow2 \
+1131    -net nic,model=virtio -net user \
+1132    -usb \
+1133    -device qemu-xhci,id=xhci \
+1134    -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d \
+1135    -device usb-tablet
+1136 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1137    -drive file=/root/windows.qcow2,format=qcow2 \
+1138    -net nic,model=virtio -net user \
+1139    -usb \
+1140    -device qemu-xhci,id=xhci \
+1141    -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d \
+1142    -device usb-tablet
+1143 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1144    -drive file=/root/windows.qcow2,format=qcow2,lock-mode=none \
+1145    -net nic,model=virtio -net user \
+1146    -usb \
+1147    -device qemu-xhci,id=xhci \
+1148    -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d \
+1149    -device usb-tablet
+1150 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1151    -drive file=/root/windows.qcow2,format=qcow2,file.locking=off \
+1152    -net nic,model=virtio -net user \
+1153    -usb \
+1154    -device qemu-xhci,id=xhci \
+1155    -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d \
+1156    -device usb-tablet
+1157 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1158    -drive file=/root/windows.qcow2,format=qcow2,file.locking=off \
+1159    -net nic,model=virtio -net user \
+1160    -usb \
+1161    -device usb-tablet
+1162 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1163    -drive file=/root/windows.qcow2,format=qcow2,file.locking=off \
+1164    -net nic,model=virtio -net user \
+1165    -usb \
+1166    -device usb-tablet
+1167 vncviewer localhost:5901
+1168 fg
+1169    -net nic,model=virtio -net user \
+1170    -usb \
+1171 pkill -9 qemu-system-x86_64
+1172 pkill -9 vncviewer
+1173 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1174    -drive file=/root/windows.qcow2,format=qcow2,file.locking=off \
+1175    -net nic,model=virtio -net user \
+1176    -usb \
+1177    -device usb-tablet
+1178 vncviewer localhost:5900
+1179 history
+1180 history
+1181 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1182 1144    -drive file=/root/windows.qcow2,format=qcow2,lock-mode=none \
+1183 1145    -net nic,model=virtio -net user \
+1184 1146    -usb \
+1185 1147    -device qemu-xhci,id=xhci \
+1186 1148    -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d \
+1187 1149    -device usb-tablet
+1188  qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1189 1174    -drive file=/root/windows.qcow2,format=qcow2,file.locking=off \
+1190 1175    -net nic,model=virtio -net user \
+1191   -usb \
+1192 1177    -device usb-tablet
+1193 1178 vncviewer localhost:5900
+1194 history
+1195 doas qemu-system-x86_64 \
+1196   -enable-kvm \
+1197   -m 4096 \
+1198   -smp cores=2,threads=2 \
+1199   -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1200   -vnc :0 \
+1201   -vga qxl \
+1202   -boot c &
+1203 doas qemu-system-x86_64 \
+1204   -enable-kvm \
+1205   -m 4096 \
+1206   -smp cores=2,threads=2 \
+1207   -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1208   -vnc :0 \
+1209   -vga qxl \
+1210   -boot c &
+1211 localhost:5900
+1212 fg 1
+1213 doas qemu-system-x86_64 \
+1214   -enable-kvm \
+1215   -m 4096 \
+1216   -smp cores=2,threads=2 \
+1217   -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1218   -vnc 127.0.0.1:0 \
+1219   -vga qxl \
+1220   -boot c >/dev/null 2>&1 &
+1221 kill %1
+1222 doas qemu-system-x86_64 \
+1223   -enable-kvm \
+1224   -m 4096 \
+1225   -smp cores=2,threads=2 \
+1226   -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1227   -display gtk \
+1228   -vga qxl \
+1229   -boot c &
+1230 kill %2 %3
+1231 doas true
+1232 exit
+1233 history
+1234 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1235 1074   -drive file=windows.qcow2,format=qcow2 \
+1236 1075   -cdrom win10.iso \
+1237 1076   -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1238 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \  -drive file=windows.qcow2,format=qcow2 \  -cdrom win10.iso \ -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1239  qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \  -drive file=windows.qcow2,f
+1240 ormat=qcow2 \  -cdrom win10.iso \ -usb -device usb-host,vendorid=0x04e8,producti
+1241 d=0x685d
+1242   -vnc 127.0.0.1
+1243 1076   -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1244 -usb -device usb-host,vendorid=0x04e8,productid=0x685d
+1245 history
+1246  qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1247 1060   -drive file=windows.qcow2,format=qcow2 \
+1248 1061   -cdrom win10.iso \
+1249 1062   -drive file=virtio-win.iso,media=cdrom \
+1250 1063   -netdev user,id=net0 -device virtio-net-pci,netdev=net0 \
+1251 1064   -usb -device usb-host,vendorid=0x04e8,productid=0x685d \
+1252 1065   -boot d
+1253 1066 apk add --no-cache qemu-system-x86_64 qemu-img+
+1254 1067 apk add --no-cache qemu-system-x86_64 qemu-img
+1255 1068 doas apk add --no-cache qemu-system-x86_64 qemu-img
+1256 1069 apk add --no-cache qemu-system-x86_64 qemu-img
+1257 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1258    -drive file=windows.qcow2,format=qcow2 \
+1259    -netdev user,id=net0 -device virtio-net-pci,netdev=net0 \
+1260    -usb -device usb-host,vendorid=0x04e8,productid=0x685d \
+1261    -boot c
+1262 ps aux | grep qemu
+1263 apk add --no-cache qemu-hw-usb-host qemu-modules
+1264 qemu-system-x86_64 -enable-kvm -m 4096 -smp cores=2,threads=2 \
+1265    -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1266    -netdev user,id=net0 -device virtio-net-pci,netdev=net0 \
+1267    -machine usb=on -device usb-host,vendorid=0x04e8,productid=0x685d \
+1268    -display gtk -vga qxl -boot c
+1269 qemu-system-x86_64 -enable-kvm -m 4096 -smp cores=2,threads=2 \
+1270    -drive file=/root/windows.qcow2,format=qcow2,media=disk \
+1271    -netdev user,id=net0 -device virtio-net-pci,netdev=net0 \
+1272    -machine usb=on -device usb-host,vendorid=0x04e8,productid=0x685d \
+1273    -display gtk -vga qxl -boot c
+1274 lsusb
+1275 heimdall detect
+1276 lsusb
+1277 startx
+1278 history
+1279 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1280 -drive file=windows.qcow2,format=qcow2 \
+1281 -cdrom win10.iso \
+1282 -drive file=virtio-win.iso,media=cdrom \
+1283 -netdev user,id=net0 -device virtio-net-pci,netdev=net0 \
+1284 -usb -device usb-host,vendorid=0x04e8,productid=0x685d \
+1285 -boot d
+1286 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1287 1247 1060   -drive file=windows.qcow2,format=qcow2 \
+1288 1248 1061   -cdrom win10.iso \
+1289 1249 1062   -drive file=virtio-win.iso,media=cdrom \
+1290 1250 1063   -netdev user,id=net0 -device virtio-net-pci,netdev=net0 \
+1291 1251 1064   -usb -device usb-host,vendorid=0x04e8,productid=0x685d \
+1292 1252 1065   -boot d
+1293 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1294   -drive file=windows.qcow2,format=qcow2 \
+1295   -cdrom win10.iso \
+1296   -drive file=virtio-win.iso,media=cdrom \
+1297   -netdev user,id=net0 -device virtio-net-pci,netdev=net0 \
+1298  -usb -device usb-host,vendorid=0x04e8,productid=0x685d \
+1299 -boot d
+1300 doas qemu-system-x86_64 \
+1301   -enable-kvm \
+1302   -m 4096 \
+1303   -smp cores=2,threads=2 \
+1304   -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1305   -vnc :0 \
+1306   -vga qxl \
+1307   -boot c &
+1308 kill %1
+1309 qemu-system-x86_64 \
+1310   -enable-kvm \
+1311   -m 4096 \
+1312   -smp cores=2,threads=2 \
+1313   -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1314   -vnc :0 \
+1315   -vga qxl \
+1316   -boot c >/dev/null 2>&1 &
+1317 jobs
+1318 kill -9 %1
+1319 doas qemu-system-x86_64 \
+1320   -enable-kvm \
+1321   -m 4096 \
+1322   -smp cores=2,threads=2 \
+1323   -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1324   -vga qxl \
+1325   -boot c
+1326 find / -name "*.qcow2" -o -name "*.img" 2>/dev/null
+1327 doas nohup qemu-system-x86_64 \
+1328   -enable-kvm \
+1329   -m 4096 \
+1330   -smp cores=2,threads=2 \
+1331   -drive file=/PASTE/YOUR/CORRECT/PATH/HERE.qcow2,format=qcow2,media=disk \
+1332   -vga qxl \
+1333   -boot c >/dev/null 2>&1 &
+1334 doas virsh vol-list default | grep -E '\.qcow2|\.img'
+1335 history
+1336 doas qemu-system-x86_64 \
+1337   -enable-kvm \
+1338   -m 4096 \
+1339   -smp cores=2,threads=2 \
+1340   -drive file=PASTE_YOUR_PATH_FROM_STEP_1_HERE,format=qcow2,media=disk \
+1341   -vga qxl \
+1342   -boot c
+1343 doas qemu-system-x86_64 \
+1344   -enable-kvm \
+1345   -m 4096 \
+1346   -smp cores=2,threads=2 \
+1347   -drive file=/root/odin4/build/windows.qcow2,format=qcow2,media=disk \
+1348   -vga qxl \
+1349   -boot c
+1350 doas qemu-system-x86_64 \
+1351   -enable-kvm \
+1352   -m 4096 \
+1353   -smp cores=2,threads=2 \
+1354   -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1355   -vga qxl \
+1356   -boot c
+1357 doas qemu-system-x86_64 \
+1358   -enable-kvm \
+1359   -m 4096 \
+1360   -smp cores=2,threads=2 \
+1361   -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1362   -vga qxl \
+1363   -boot c
+1364 mount -a
+1365 ls -l /var/lib/libvirt/images/
+1366 virsh pool-start default
+1367 history
+1368 qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 \
+1369    -drive file=/root/windows.qcow2,format=qcow2 \
+1370    -net nic,model=virtio -net user \
+1371    -usb \
+1372    -device qemu-xhci,id=xhci \
+1373    -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d \
+1374    -device usb-tablet
+1375 cat << 'EOF' > ~/Desktop/Launch-Windows-VM.desktop
+1376 [Desktop Entry]
+1377 Version=1.0
+1378 Type=Application
+1379 Name=Windows 10 VM
+1380 Comment=Launch Windows 10 with Samsung USB Passthrough
+1381 Exec=doas qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 -drive file=/root/windows.qcow2,format=qcow2 -net nic,model=virtio -net user -usb -device qemu-xhci,id=xhci -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d -device usb-tablet
+1382 Icon=computer
+1383 Terminal=true
+1384 Categories=System;Emulator;
+1385 EOF
+1386 wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+1387 -cdrom /path/to/virtio-win.iso
+1388 qemu-system-x86_64 -m 4G -smp 4 -enable-kvm \
+1389   -drive file=/path/to/windows.qcow2,format=qcow2 \
+1390   -cdrom virtio-win.iso \
+1391   -net nic,model=virtio -net user
+1392 virsh list --all
+1393 doas qemu-system-x86_64 \
+1394    -enable-kvm \
+1395    -m 4096 \
+1396    -smp cores=2,threads=2 \
+1397    -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1398    -vga qxl \
+1399    -boot c
+1400 qemu-system-x86_64 \
+1401    -enable-kvm \
+1402    -m 4096 \
+1403    -smp cores=2,threads=2 \
+1404    -drive file=/var/lib/libvirt/images/windows.qcow2,format=qcow2,media=disk \
+1405    -vga qxl \
+1406    -boot c
+1407 qemu-system-x86_64 \
+1408   -enable-kvm \
+1409   -cpu host \
+1410   -m 8192 \
+1411   -smp 4 \
+1412   -drive file=/root/windows.qcow2,format=qcow2 \
+1413   -net nic,model=e1000,netdev=net0 \
+1414   -netdev user,id=net0 \
+1415   -usb \
+1416   -device qemu-xhci,id=xhci \
+1417   -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d \
+1418   -device usb-tablet
+1419 qemu-system-x86_64 \
+1420   -enable-kvm \
+1421   -cpu host \
+1422   -m 8192 \
+1423   -smp 4 \
+1424   -drive file=/root/windows.qcow2,format=qcow2 \
+1425   -net nic,model=e1000,netdev=net0 \
+1426   -netdev user,id=net0 \
+1427   -display gtk,gl=on \
+1428   -vga virtio \
+1429   -usb \
+1430   -device qemu-xhci,id=xhci \
+1431   -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d \
+1432   -device usb-tablet
+1433 cat << 'EOF' > ~/Desktop/windows10.desktop
+1434 [Desktop Entry]
+1435 Name=Windows 10 KVM
+1436 Comment=Launch Windows 10 VM
+1437 Exec=pkexec qemu-system-x86_64 -enable-kvm -cpu host -m 8192 -smp 4 -drive file=/root/windows.qcow2,format=qcow2 -net nic,model=e1000,netdev=net0 -netdev user,id=net0 -usb -device qemu-xhci,id=xhci -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d -device usb-tablet
+1438 Icon=computer
+1439 Terminal=false
+1440 Type=Application
+1441 EOF
+1442 chmod +x ~/Desktop/windows10.desktop
+1443 adb
+1444 apk add adb
+1445 apk update
+1446 lsusb
+1447 adb
+1448 adb devices
+1449 odin
+1450 ls
+1451 cd build/
+1452 ls
+1453 cd ..
+1454 ls
+1455 cd ..
+1456 cd 
+1457 cd odin4/
+1458 ls
+1459 cd build/
+1460 ls
+1461 odin4 -l
+1462 ls
+1463 cd
+1464 ls
+1465 cd samsung-flash
+1466 ls
+1467 cd
+1468 ls
+1469 cd odin4/
+1470 ls
+1471 cd build/
+1472 ls
+1473 odin4
+1474 debug
+1475 odin4 -l
+1476 cd /root/Downloads/4four/
+1477 adb push lineage-23.2-20261017-nightly-gta4xlswifi-signed.zip /sdcard/
+1478 lsusb
+1479 adb sideload /root/Downloads/4four/lineage-23.2-20261017-nightly-gta4xlswifi-signed/
+1480 cd /root/Downloads/4four/
+1481 adb push lineage-23.2-20261017-nightly-gta4xlswifi-signed.zip /sdcard/
+1482 lsusb
+1483 adb push /root/Downloads/4four/lineage-23.2-20261017-nightly-gta4xlswifi-signed.zip /sdcard/
+1484 cd
+1485 adb push /root/Downloads/4four/lineage-23.2-20261017-nightly-gta4xlswifi-signed.zip /sdcard/
+1486 apk add --no-cache android-tools --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+1487 adb sideload /root/Downloads/4four/lineage-23.2-20261017-nightly-gta4xlswifi-signed.zip
+1488 apk update
+1489 apk upgrade
+1490 adb sideload /root/Downloads/4four/lineage-23.2-20261017-nightly-gta4xlswifi-signed.zip
+1491 find / -name "*gta4xlswifi*" 2>/dev/null
+1492 went into download mode 
+1493 tree
+1494 adb
+1495 adb devices
+1496 lsusb
+1497 adb devices
+1498 adb sideload /root/Downloads/4four/lineage-23.2-20261017-nightly-gta4xlswifi-signed/lineage-23.2-20261017-nightly-gta4xlswifi-signed.zip
+1499 abd 
+1500 adb devices
+1501 adb sideload /root/Downloads/4four/lineage-23.2-20261017-nightly-gta4xlswifi-signed/lineage-23.2-20261017-nightly-gta4xlswifi-signed.zip
+1502 ls -la /root/Downloads/4four/lineage-23.2-20261017-nightly-gta4xlswifi-signed/
+1503 cd /root/Downloads/4four/lineage-23.2-20261017-nightly-gta4xlswifi-signed/
+1504 adb sideload ./lineage-23.2-20261017-nightly-gta4xlswifi-signed.zip
+1505 ls
+1506 cd
+1507 ls
+1508 cd
+1509 ls
+1510 cd
+1511 ls
+1512 cd ..
+1513 ls
+1514 cd home
+1515 ls
+1516 cd admin/
+1517 LS
+1518 ls
+1519 cd D
+1520 cd Downloads/
+1521 ls
+1522 cd
+1523 ls
+1524 cd Downloads/
+1525 ls
+1526 adb sideload lineage-23.2-20261017.zip
+1527 4four
+1528 EtchDroid-v1.5-release.apk
+1529 SAMFW.COM_SM-F966U_VZW_F966USQS6AYK9_fac.zip
+1530 Win10_22H2_EnglishInternational_x32v1.iso
+1531 app-foss-release.apk
+1532 app-gplay-release.apk
+1533 file.sh
+1534 lineage-23.2-20261017.zip
+1535 ~/Downloads # adb sideload lineage-23.2-20261017.zip?
+1536 adb: sideload connection failed: no devices/emulators found
+1537 adb: trying pre-KitKat sideload method...
+1538 adb: pre-KitKat sideload connection failed: no devices/emulators found
+1539 ~/Downloads # 
+1540 adb devices
+1541 adb sideload lineage-23.2-20261017.zip
+1542 heimdall
+1543 heimdall detect
+1544 lsusb
+1545 adb sideload lineage-23.2-20261017.zip
+1546 heimdall detect
+1547 adb sideload lineage-23.2-20261017.zip
+1548 adb devices
+1549 lsusb
+1550 adb sideload lineage-23.2-20261017.zip
+1551 adb devices
+1552 adb sideload lineage-23.2-20261017.zip
+1553 lsusb
+1554 adb devices
+1555 adb sideload lineage-23.2-20261017.zip
+1556 adb sideload lineage-23.2-20261017-nightly-gta4xlwifi-signed.zip 
+1557 lsusb
+1558 adb devices
+1559 adb sideload lineage-23.2-20261017-nightly-gta4xlwifi-signed.zip 
+1560 adb devices
+1561 lsusb
+1562 adb
+1563 attach
+1564 reconnect
+1565 lsusb
+1566 reconnect
+1567 attach
+1568 adb
+1569 adb start-server
+1570 adb devices
+1571 adb root
+1572 adb emulater
+1573 apk androit
+1574 apk android
+1575 kill -9
+1576 history
+1577 doas qemu-system-x86_64 \
+1578   -enable-kvm \
+1579   -m 4096 \
+1580   -smp cores=2,threads=2 \
+1581   -drive file=PUT_THE_EXACT_PATH_HERE,format=qcow2,media=disk \
+1582   -vga qxl \
+1583   -boot c
+1584 qemu-system-x86_64 \
+1585   -enable-kvm \
+1586   -m 4096 \
+1587   -smp cores=2,threads=2 \
+1588   -drive file=PUT_THE_EXACT_PATH_HERE,format=qcow2,media=disk \
+1589   -vga qxl \
+1590   -boot c
+1591 doas nohup qemu-system-x86_64 \
+1592   -enable-kvm \
+1593   -m 4096 \
+1594   -smp cores=2,threads=2 \
+1595   -drive file=/var/lib/libvirt/images/REPLACE_WITH_YOUR_FILENAME,format=qcow2,media=disk \
+1596   -vga qxl \
+1597   -boot c >/dev/null 2>&1 &
+1598 history
+1599 Exec=doas qemu-system-x86_64 -enable-kvm -m 8192 -smp 4 -drive file=/root/windows.qcow2,format=qcow2 -net nic,model=virtio -net user -usb -device qemu-xhci,id=xhci -device usb-host,bus=xhci.0,vendorid=0x04e8,productid=0x685d -device usb-tablet
+1600 kill -9
+1601 history
+~ # 
